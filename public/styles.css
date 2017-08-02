@@ -1,0 +1,13 @@
+table{
+    border: 2px solid orange;
+}
+
+th{
+    border: 2px solid rosybrown;
+    background-color: rosybrown;
+}
+
+td{
+    border: 2px solid cornflowerblue;
+    background-color: cornflowerblue;
+}
