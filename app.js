@@ -24,7 +24,7 @@ var geese = [
 ];
 
 app.use(express.static('public'));
-//if we have a json body, if we didnt have true, it would flatten the body
+//if we have a json body, if we didnt have true, it would flatten the body (flattened object tree)
 //true returns a tree structure.
 //Anytime you want to post anything, you need body parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,6 +35,7 @@ app.get('/geese', function (req, res) {
 });
 
 app.post('/geese', function (req, res) {
+    //For loop that checks if the response matches any of the names in the geese array
     for (i = 0; i < geese.length; i++) {
         if (req.body.name === geese[i].name) {
             console.log('ERRORR ERROR ERROR');
@@ -42,6 +43,7 @@ app.post('/geese', function (req, res) {
         }
     }
 
+    //If function that checks if the response returns a name that is an empty string.
     if (req.body.name === '') {
         console.log('ErrorERROR EROROR');
         res.sendStatus(400);
@@ -56,6 +58,7 @@ app.post('/geese', function (req, res) {
     }
 });
 
+//Checks if connected to correct port.
 app.listen(port, function () {
     console.log('Listening to port:', port);
 });
